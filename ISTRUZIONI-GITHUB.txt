@@ -1,0 +1,17 @@
+ISTRUZIONI PER CARICARE IL SITO SU GITHUB PAGES
+
+1. Apri il repository valeriodesantis.github.io su GitHub.
+2. Seleziona tutti i file e le cartelle contenuti in questo pacchetto:
+   - index.html
+   - style.css
+   - script.js
+   - assets
+3. Caricali nella radice del repository, cioe' nello stesso livello dove ora si trova il file README.md.
+4. Quando GitHub chiede conferma, premi Commit changes.
+5. Attendi 2-5 minuti e apri:
+   https://valeriodesantis.github.io
+
+NOTE
+- Il file README.md puo' restare: non impedisce il funzionamento del sito.
+- La cartella assets deve restare con questo nome.
+- Se in futuro aggiungi una foto autore, inseriscila in assets e poi aggiorniamo il codice.
