@@ -1,13 +1,150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Valerio De Santis | Scrittore</title>
+  <meta name="description" content="Sito ufficiale di Valerio De Santis, autore di narrativa thriller, horror e weird. Lontano dai cipressi e Cinque piccole affamate.">
+  <meta name="author" content="Valerio De Santis">
+  <meta property="og:title" content="Valerio De Santis | Scrittore">
+  <meta property="og:description" content="Narrativa thriller, horror e weird. Lontano dai cipressi e Cinque piccole affamate.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/foto-autore.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Valerio De Santis</h1>
-  <p>Sito ufficiale in costruzione.</p>
-  <p>Autore di <em>Cinque piccole affamate</em> e <em>Lontano dai cipressi</em>.</p>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Torna all'inizio">
+      <span class="brand-mark">VDS</span>
+      <span class="brand-text">Valerio De Santis</span>
+    </a>
+    <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">☰</button>
+    <nav class="main-nav" aria-label="Navigazione principale">
+      <a href="#libri">Libri</a>
+      <a href="#autore">Chi sono</a>
+      <a href="#rassegna">Rassegna</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-pad">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Narrativa thriller · horror · weird</p>
+        <h1>Storie dove il buio non è mai davvero vuoto.</h1>
+        <p class="lead">Sito ufficiale di Valerio De Santis, autore di <em>Lontano dai cipressi</em> e <em>Cinque piccole affamate</em>.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#lontano">Scopri il nuovo romanzo</a>
+          <a class="button ghost" href="mailto:valeriodesantis@gmail.com">Contattami</a>
+        </div>
+      </div>
+      <div class="hero-art reveal delay-1" aria-label="Copertina del romanzo Lontano dai cipressi">
+        <img src="assets/lontano-dai-cipressi-cover.jpg" alt="Copertina di Lontano dai cipressi di Valerio De Santis">
+      </div>
+    </section>
+
+    <section class="intro-strip reveal">
+      <p><strong>Lontano dai cipressi</strong> sarà disponibile dal <strong>23 giugno 2026</strong> in libreria e online.</p>
+    </section>
+
+    <section class="section-pad" id="libri">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Bibliografia</p>
+        <h2>Libri</h2>
+      </div>
+
+      <article class="book-card featured reveal" id="lontano">
+        <div class="book-cover">
+          <img src="assets/lontano-dai-cipressi-cover.jpg" alt="Copertina di Lontano dai cipressi">
+        </div>
+        <div class="book-copy">
+          <p class="book-meta">Edikit · 2026 · noir rurale / thriller</p>
+          <h3>Lontano dai cipressi</h3>
+          <p>Tra i boschi dell'Abruzzo dimenticati dalla guerra, il silenzio nasconde verità spietate. Due linee narrative si rincorrono tra memoria, vecchiaia e colpa, fino a una fortezza isolata dove i lupi non sono le uniche bestie da temere.</p>
+          <div class="link-row" aria-label="Link di acquisto per Lontano dai cipressi">
+            <a href="https://www.amazon.it/Lontano-dai-cipressi-Valerio-Santis/dp/B0H37WHJYK" target="_blank" rel="noopener">Amazon</a>
+            <a href="https://www.lafeltrinelli.it/lontano-dai-cipressi-libro-valerio-de-santis/e/9791281623934" target="_blank" rel="noopener">Feltrinelli</a>
+            <a href="https://www.ibs.it/lontano-dai-cipressi-libro-valerio-de-santis/e/9791281623934" target="_blank" rel="noopener">IBS</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="book-card reveal" id="cinque">
+        <div class="book-cover">
+          <img src="assets/cinque-piccole-affamate-cover.jpg" alt="Copertina di Cinque piccole affamate">
+        </div>
+        <div class="book-copy">
+          <p class="book-meta">Delos Digital · Innsmouth 224 · 2025 · weird</p>
+          <h3>Cinque piccole affamate</h3>
+          <p>Un treno maledetto, un invito letale, quattro donne intrappolate in un gioco senza scampo. Un romanzo breve di identità perdute, enigmi insanguinati e verità che chiedono sempre un prezzo.</p>
+          <div class="link-row" aria-label="Link di acquisto per Cinque piccole affamate">
+            <a href="https://www.amazon.it/dp/B0FX3LQRKP" target="_blank" rel="noopener">Amazon</a>
+            <a href="https://delos.digital/9788825434477/cinque-piccole-affamate" target="_blank" rel="noopener">Delos</a>
+            <a href="https://www.ibs.it/cinque-piccole-affamate-ebook-valerio-de-santis/e/9788825434477" target="_blank" rel="noopener">IBS</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section-pad author-section" id="autore">
+      <div class="author-panel reveal">
+        <figure class="author-portrait">
+          <img src="assets/foto-autore.jpg" alt="Ritratto di Valerio De Santis">
+        </figure>
+        <div>
+          <p class="eyebrow">L'autore</p>
+          <h2>Valerio De Santis</h2>
+          <p>Valerio De Santis è nato nel 1980 a L'Aquila. Dopo la maturità classica si è laureato in Economia e Commercio, continuando a coltivare una profonda passione per la narrativa fantastica, il thriller e l'orrore.</p>
+          <p>Dal 2014 vive a Roma. La sua scrittura nasce dall'interesse per le zone d'ombra del reale: luoghi, personaggi e vicende in cui il mistero assume spesso una dimensione morale, psicologica e perturbante.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="rassegna">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Recensioni e segnalazioni</p>
+        <h2>Rassegna</h2>
+      </div>
+      <div class="press-grid">
+        <a class="press-card reveal" href="https://www.clubghost.it/ipnotica/ipnoticaghost/blog/?cinque-piccole-affamate-di-valerio-de-santis=" target="_blank" rel="noopener">
+          <span>ClubGhost</span>
+          <strong>Cinque piccole affamate</strong>
+          <small>Recensione / segnalazione</small>
+        </a>
+        <a class="press-card reveal delay-1" href="https://www.fantasymagazine.it/37623/cinque-piccole-affamate" target="_blank" rel="noopener">
+          <span>FantasyMagazine</span>
+          <strong>Cinque piccole affamate</strong>
+          <small>Scheda e disponibilità ebook</small>
+        </a>
+        <a class="press-card reveal delay-2" href="https://www.instagram.com/valdes_it/" target="_blank" rel="noopener">
+          <span>Instagram</span>
+          <strong>@valdes_it</strong>
+          <small>Aggiornamenti, teaser e contenuti social</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-pad contact-section" id="contatti">
+      <div class="contact-card reveal">
+        <p class="eyebrow">Contatti</p>
+        <h2>Per proposte, recensioni e richieste stampa</h2>
+        <p>Per comunicazioni professionali, recensioni, interviste o presentazioni, puoi scrivermi via email o seguirmi sui canali social.</p>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:valeriodesantis@gmail.com">valeriodesantis@gmail.com</a>
+          <a class="button ghost" href="https://www.instagram.com/valdes_it/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Valerio De Santis. Tutti i diritti riservati.</p>
+    <a href="#top">Torna su</a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
