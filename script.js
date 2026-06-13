@@ -1,28 +1,26 @@
-const year = document.querySelector('#year');
-if (year) year.textContent = new Date().getFullYear();
+const toggle = document.querySelector('.nav-toggle');
+const menu = document.querySelector('#menu');
 
-const navToggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('.main-nav');
-if (navToggle && nav) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
+if (toggle && menu) {
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
   });
-  nav.querySelectorAll('a').forEach(link => {
+
+  menu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      nav.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
     });
   });
 }
 
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-reveals.forEach(el => observer.observe(el));
+const year = document.querySelector('#year');
+if (year) year.textContent = new Date().getFullYear();
+
+const emailLink = document.querySelector('#email-link');
+if (emailLink) {
+  const address = `${emailLink.dataset.user}@${emailLink.dataset.domain}`;
+  emailLink.href = `mailto:${address}`;
+  emailLink.textContent = 'E-mail';
+}

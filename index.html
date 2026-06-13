@@ -4,145 +4,157 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Valerio De Santis | Scrittore</title>
-  <meta name="description" content="Sito ufficiale di Valerio De Santis, autore di narrativa thriller, horror e weird. Lontano dai cipressi e Cinque piccole affamate.">
-  <meta name="author" content="Valerio De Santis">
-  <meta property="og:title" content="Valerio De Santis | Scrittore">
-  <meta property="og:description" content="Narrativa thriller, horror e weird. Lontano dai cipressi e Cinque piccole affamate.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/foto-autore.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Sito ufficiale di Valerio De Santis, autore di Lontano dai cipressi e Cinque piccole affamate.">
   <link rel="stylesheet" href="style.css">
+
+  <script data-goatcounter="https://valeriodesantis.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
-<body>
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Torna all'inizio">
+<body id="top">
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Torna alla home">
       <span class="brand-mark">VDS</span>
-      <span class="brand-text">Valerio De Santis</span>
+      <span>Valerio De Santis</span>
     </a>
-    <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">☰</button>
-    <nav class="main-nav" aria-label="Navigazione principale">
-      <a href="#libri">Libri</a>
-      <a href="#autore">Chi sono</a>
-      <a href="#rassegna">Rassegna</a>
-      <a href="#contatti">Contatti</a>
+
+    <nav class="nav" aria-label="Navigazione principale">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">☰</button>
+      <div id="menu" class="nav-links">
+        <a href="#libri">Libri</a>
+        <a href="#autore">Chi sono</a>
+        <a href="#rassegna">Rassegna</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+      <a class="instagram-link" href="https://www.instagram.com/valdes_it/" target="_blank" rel="noopener" aria-label="Profilo Instagram di Valerio De Santis">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.8A4.2 4.2 0 1 1 12 16.2 4.2 4.2 0 0 1 12 7.8Zm0 2A2.2 2.2 0 1 0 12 14.2 2.2 2.2 0 0 0 12 9.8Zm4.75-3.05a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z"/></svg>
+      </a>
     </nav>
   </header>
 
   <main>
-    <section class="hero section-pad">
-      <div class="hero-copy reveal">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
         <p class="eyebrow">Narrativa thriller · horror · weird</p>
-        <h1>Storie dove il buio non è mai davvero vuoto.</h1>
+        <h1 id="hero-title">Storie dove il buio non è mai davvero vuoto.</h1>
         <p class="lead">Sito ufficiale di Valerio De Santis, autore di <em>Lontano dai cipressi</em> e <em>Cinque piccole affamate</em>.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#lontano">Scopri il nuovo romanzo</a>
-          <a class="button ghost" href="mailto:valeriodesantis@gmail.com">Contattami</a>
+          <a class="button primary" href="#lontano-dai-cipressi">Scopri il nuovo romanzo</a>
+          <a class="button ghost" href="#contatti">Contattami</a>
         </div>
       </div>
-      <div class="hero-art reveal delay-1" aria-label="Copertina del romanzo Lontano dai cipressi">
+      <div class="hero-cover">
         <img src="assets/lontano-dai-cipressi-cover.jpg" alt="Copertina di Lontano dai cipressi di Valerio De Santis">
       </div>
     </section>
 
-    <section class="intro-strip reveal">
-      <p><strong>Lontano dai cipressi</strong> sarà disponibile dal <strong>23 giugno 2026</strong> in libreria e online.</p>
-    </section>
+    <p class="release-note"><strong>Lontano dai cipressi</strong> sarà disponibile dal <strong>23 giugno 2026</strong> in libreria e online.</p>
 
-    <section class="section-pad" id="libri">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Bibliografia</p>
-        <h2>Libri</h2>
-      </div>
-
-      <article class="book-card featured reveal" id="lontano">
-        <div class="book-cover">
+    <section id="libri" class="section">
+      <p class="section-kicker">Bibliografia</p>
+      <h2>Libri</h2>
+      <div class="books-grid">
+        <article id="lontano-dai-cipressi" class="book-card">
           <img src="assets/lontano-dai-cipressi-cover.jpg" alt="Copertina di Lontano dai cipressi">
-        </div>
-        <div class="book-copy">
-          <p class="book-meta">Edikit · 2026 · noir rurale / thriller</p>
-          <h3>Lontano dai cipressi</h3>
-          <p>Tra i boschi dell'Abruzzo dimenticati dalla guerra, il silenzio nasconde verità spietate. Due linee narrative si rincorrono tra memoria, vecchiaia e colpa, fino a una fortezza isolata dove i lupi non sono le uniche bestie da temere.</p>
-          <div class="link-row" aria-label="Link di acquisto per Lontano dai cipressi">
-            <a href="https://www.amazon.it/Lontano-dai-cipressi-Valerio-Santis/dp/B0H37WHJYK" target="_blank" rel="noopener">Amazon</a>
-            <a href="https://www.lafeltrinelli.it/lontano-dai-cipressi-libro-valerio-de-santis/e/9791281623934" target="_blank" rel="noopener">Feltrinelli</a>
-            <a href="https://www.ibs.it/lontano-dai-cipressi-libro-valerio-de-santis/e/9791281623934" target="_blank" rel="noopener">IBS</a>
+          <div>
+            <p class="meta">Edikit · 2026 · noir rurale / thriller</p>
+            <h3>Lontano dai cipressi</h3>
+            <p>Tra i boschi dell'Abruzzo dimenticati dalla guerra, il silenzio nasconde verità spietate. Due linee narrative si rincorrono tra memoria, vecchiaia e colpa, fino a una fortezza isolata dove i lupi non sono le uniche bestie da temere.</p>
+            <div class="links-row">
+              <a href="https://www.amazon.it/Lontano-dai-cipressi-Valerio-Santis/dp/B0H37WHJYK" target="_blank" rel="noopener">Amazon</a>
+              <a href="https://www.lafeltrinelli.it/lontano-dai-cipressi-libro-valerio-de-santis/e/9791281623934" target="_blank" rel="noopener">Feltrinelli</a>
+              <a href="https://www.ibs.it/lontano-dai-cipressi-libro-valerio-de-santis/e/9791281623934" target="_blank" rel="noopener">IBS</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="book-card reveal" id="cinque">
-        <div class="book-cover">
+        <article class="book-card">
           <img src="assets/cinque-piccole-affamate-cover.jpg" alt="Copertina di Cinque piccole affamate">
-        </div>
-        <div class="book-copy">
-          <p class="book-meta">Delos Digital · Innsmouth 224 · 2025 · weird</p>
-          <h3>Cinque piccole affamate</h3>
-          <p>Un treno maledetto, un invito letale, quattro donne intrappolate in un gioco senza scampo. Un romanzo breve di identità perdute, enigmi insanguinati e verità che chiedono sempre un prezzo.</p>
-          <div class="link-row" aria-label="Link di acquisto per Cinque piccole affamate">
-            <a href="https://www.amazon.it/dp/B0FX3LQRKP" target="_blank" rel="noopener">Amazon</a>
-            <a href="https://delos.digital/9788825434477/cinque-piccole-affamate" target="_blank" rel="noopener">Delos</a>
-            <a href="https://www.ibs.it/cinque-piccole-affamate-ebook-valerio-de-santis/e/9788825434477" target="_blank" rel="noopener">IBS</a>
+          <div>
+            <p class="meta">Delos Digital · Innsmouth 224 · 2025 · weird</p>
+            <h3>Cinque piccole affamate</h3>
+            <p>Un treno maledetto, un invito letale, quattro donne intrappolate in un gioco senza scampo. Un thriller weird di identità perdute, enigmi insanguinati e verità che chiedono sempre un prezzo.</p>
+            <div class="links-row">
+              <a href="https://www.amazon.it/s?k=Cinque+piccole+affamate+Valerio+De+Santis" target="_blank" rel="noopener">Amazon</a>
+              <a href="https://delos.digital/9788825434477/cinque-piccole-affamate" target="_blank" rel="noopener">Delos</a>
+              <a href="https://www.ibs.it/cinque-piccole-affamate-ebook-valerio-de-santis/e/9788825434477" target="_blank" rel="noopener">IBS</a>
+            </div>
           </div>
-        </div>
-      </article>
-    </section>
-
-    <section class="section-pad author-section" id="autore">
-      <div class="author-panel reveal">
-        <figure class="author-portrait">
-          <img src="assets/foto-autore.jpg" alt="Ritratto di Valerio De Santis">
-        </figure>
-        <div>
-          <p class="eyebrow">L'autore</p>
-          <h2>Valerio De Santis</h2>
-          <p>Valerio De Santis è nato nel 1980 a L'Aquila. Dopo la maturità classica si è laureato in Economia e Commercio, continuando a coltivare una profonda passione per la narrativa fantastica, il thriller e l'orrore.</p>
-          <p>Dal 2014 vive a Roma. La sua scrittura nasce dall'interesse per le zone d'ombra del reale: luoghi, personaggi e vicende in cui il mistero assume spesso una dimensione morale, psicologica e perturbante.</p>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section class="section-pad" id="rassegna">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Recensioni e segnalazioni</p>
-        <h2>Rassegna</h2>
-      </div>
-      <div class="press-grid">
-        <a class="press-card reveal" href="https://www.clubghost.it/ipnotica/ipnoticaghost/blog/?cinque-piccole-affamate-di-valerio-de-santis=" target="_blank" rel="noopener">
-          <span>ClubGhost</span>
-          <strong>Cinque piccole affamate</strong>
-          <small>Recensione / segnalazione</small>
-        </a>
-        <a class="press-card reveal delay-1" href="https://www.fantasymagazine.it/37623/cinque-piccole-affamate" target="_blank" rel="noopener">
-          <span>FantasyMagazine</span>
-          <strong>Cinque piccole affamate</strong>
-          <small>Scheda e disponibilità ebook</small>
-        </a>
-        <a class="press-card reveal delay-2" href="https://www.instagram.com/valdes_it/" target="_blank" rel="noopener">
-          <span>Instagram</span>
-          <strong>@valdes_it</strong>
-          <small>Aggiornamenti, teaser e contenuti social</small>
-        </a>
+    <section id="autore" class="section author-section">
+      <img class="author-photo" src="assets/foto-autore.jpg" alt="Ritratto illustrato di Valerio De Santis">
+      <div>
+        <p class="section-kicker">L'autore</p>
+        <h2>Valerio De Santis</h2>
+        <p>Valerio De Santis è nato nel 1980 a L'Aquila. Dopo la maturità classica si è laureato in Economia e Commercio, continuando a coltivare una profonda passione per la narrativa fantastica, il thriller e l'orrore.</p>
+        <p>Dal 2014 vive a Roma. La sua scrittura nasce dall'interesse per le zone d'ombra del reale: luoghi, personaggi e vicende in cui il mistero assume spesso una dimensione morale, psicologica e perturbante.</p>
       </div>
     </section>
 
-    <section class="section-pad contact-section" id="contatti">
-      <div class="contact-card reveal">
-        <p class="eyebrow">Contatti</p>
-        <h2>Per proposte, recensioni e richieste stampa</h2>
-        <p>Per comunicazioni professionali, recensioni, interviste o presentazioni, puoi scrivermi via email o seguirmi sui canali social.</p>
-        <div class="contact-actions">
-          <a class="button primary" href="mailto:valeriodesantis@gmail.com">valeriodesantis@gmail.com</a>
-          <a class="button ghost" href="https://www.instagram.com/valdes_it/" target="_blank" rel="noopener">Instagram</a>
-        </div>
+    <section id="rassegna" class="section">
+      <p class="section-kicker">Recensioni e segnalazioni</p>
+      <h2>Rassegna</h2>
+      <p class="section-intro">Una selezione di letture critiche, recensioni e segnalazioni dedicate ai miei libri.</p>
+      <div class="reviews-grid">
+        <article class="review-card">
+          <img src="assets/review-les-fleurs.jpg" alt="Les Fleurs du Mal Blog">
+          <div class="review-body">
+            <p class="meta">Les Fleurs du Mal · recensione · Cinque piccole affamate</p>
+            <h3>“La scrittura di Valerio DeSantis è un organismo vivo.”</h3>
+            <a href="https://lesfleursdumal2016.wordpress.com/2025/11/21/cinque-piccole-affamate-valerio-desantisdelos-digital-a-cura-di-barbara-anderson/" target="_blank" rel="noopener">Leggi la recensione</a>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <img src="assets/review-carta-fragile.jpg" alt="Recensione Instagram di Carta_fragile">
+          <div class="review-body">
+            <p class="meta">Carta_fragile · recensione Instagram · Cinque piccole affamate</p>
+            <h3>“Un horror weird perturbante, simbolico e pieno di disagio.”</h3>
+            <a href="https://www.instagram.com/p/DTRYrgdjVXA/" target="_blank" rel="noopener">Leggi il post</a>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <img src="assets/review-tra-montagne.jpg" alt="Recensione di Tra Montagne di Libri">
+          <div class="review-body">
+            <p class="meta">Tra Montagne di Libri · recensione video · Cinque piccole affamate</p>
+            <h3>“Un romanzo horror weird con elementi fiabeschi declinati in chiave oscura.”</h3>
+            <a href="https://www.tramontagnedilibri.it/" target="_blank" rel="noopener">Vai al sito</a>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <img src="assets/review-bokononisti.jpg" alt="Segnalazione Instagram di Bokononisti.it">
+          <div class="review-body">
+            <p class="meta">Bokononisti.it · segnalazione Instagram · Cinque piccole affamate</p>
+            <h3>“Un thriller psicologico che diventa horror esistenziale.”</h3>
+            <a href="https://www.instagram.com/p/DSB7qdjAQkd/?img_index=1" target="_blank" rel="noopener">Leggi il post</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="press-links">
+        <a href="https://www.clubghost.it/ipnotica/ipnoticaghost/blog/?cinque-piccole-affamate-di-valerio-de-santis=" target="_blank" rel="noopener">ClubGhost</a>
+        <a href="https://www.fantasymagazine.it/37623/cinque-piccole-affamate" target="_blank" rel="noopener">FantasyMagazine</a>
+        <a href="https://www.instagram.com/valdes_it/" target="_blank" rel="noopener">Instagram @valdes_it</a>
+      </div>
+    </section>
+
+    <section id="contatti" class="section contact-section">
+      <p class="section-kicker">Contatti</p>
+      <h2>Per proposte, recensioni e richieste stampa</h2>
+      <p>Per comunicazioni professionali, recensioni, interviste o presentazioni, puoi scrivermi via e-mail o seguirmi sui canali social.</p>
+      <div class="links-row contact-links">
+        <a id="email-link" data-user="valeriodesantis" data-domain="gmail.com" href="#">E-mail</a>
+        <a href="https://www.instagram.com/valdes_it/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Valerio De Santis. Tutti i diritti riservati.</p>
-    <a href="#top">Torna su</a>
+    <a class="back-to-top" href="#top">Torna su ↑</a>
   </footer>
 
   <script src="script.js"></script>
