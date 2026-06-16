@@ -95,8 +95,8 @@ h1 { font-size: clamp(2.7rem, 7vw, 5.8rem); max-width: 11ch; }
 h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
 h3 { font-size: 1.5rem; }
 .lead { max-width: 42rem; color: var(--muted); font-size: 1.15rem; }
-.hero-actions, .links-row, .press-links { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
-.button, .links-row a, .press-links a {
+.hero-actions, .links-row { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
+.button, .links-row a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -106,10 +106,10 @@ h3 { font-size: 1.5rem; }
   text-decoration: none;
   transition: transform .2s ease, border-color .2s ease, background .2s ease;
 }
-.button:hover, .links-row a:hover, .press-links a:hover { transform: translateY(-1px); border-color: var(--accent); }
+.button:hover, .links-row a:hover { transform: translateY(-1px); border-color: var(--accent); }
 .primary { background: var(--accent); color: #15110b; border-color: var(--accent); font-weight: 700; }
 .ghost { color: var(--text); }
-.hero-cover img, .book-card img, .author-photo, .review-card img {
+.hero-cover img, .book-card img, .author-photo {
   border-radius: 1.1rem;
   box-shadow: var(--shadow);
   border: 1px solid var(--line);
@@ -124,7 +124,7 @@ h3 { font-size: 1.5rem; }
   color: var(--muted);
 }
 .section { padding: clamp(3rem, 7vw, 6rem) 0; border-top: 1px solid var(--line); }
-.section-intro { color: var(--muted); max-width: 44rem; margin-top: -.5rem; margin-bottom: 2rem; }
+.section-intro { color: var(--muted); max-width: 48rem; margin-top: -.5rem; margin-bottom: 2rem; }
 .books-grid { display: grid; gap: 1.4rem; }
 .book-card {
   display: grid;
@@ -151,23 +151,32 @@ h3 { font-size: 1.5rem; }
   gap: 1.25rem;
 }
 .review-card {
-  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 1.25rem;
-  background: var(--surface);
+  background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+  position: relative;
+  overflow: hidden;
 }
-.review-card img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
+.review-card-text {
+  min-height: 245px;
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.review-body { padding: 1.1rem; }
-.review-body h3 { font-size: 1.35rem; }
-.review-body a { color: var(--accent); font-weight: 700; }
-.press-links { margin-top: 1.5rem; }
+.review-card-text::before {
+  content: "“";
+  position: absolute;
+  right: 1.05rem;
+  top: -.15rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 7rem;
+  line-height: 1;
+  color: rgba(200,164,106,.12);
+  pointer-events: none;
+}
+.review-card h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); max-width: 18rem; position: relative; }
+.review-card a { color: var(--accent); font-weight: 700; position: relative; }
 .contact-section p { color: var(--muted); }
 .site-footer {
   width: min(1120px, calc(100% - 2rem));
@@ -180,6 +189,34 @@ h3 { font-size: 1.5rem; }
   color: var(--muted);
 }
 .back-to-top { color: var(--accent); font-weight: 700; }
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+.footer-links a { color: var(--accent); font-weight: 700; }
+.legal-page {
+  max-width: 860px;
+  margin: 0 auto;
+  border-top: 0;
+  padding-top: clamp(4rem, 8vw, 7rem);
+}
+.legal-page h1 { max-width: none; font-size: clamp(2.5rem, 6vw, 4.6rem); }
+.legal-page h2 { font-size: clamp(1.35rem, 3vw, 2rem); }
+.legal-lead { max-width: 52rem; }
+.policy-updated { color: var(--muted); margin-bottom: 2rem; }
+.legal-box {
+  padding: 1.25rem 1.35rem;
+  margin: 1rem 0;
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  background: linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+}
+.legal-box p { color: var(--muted); }
+.legal-note { border-color: rgba(200,164,106,.35); }
 
 @media (max-width: 780px) {
   .site-header { align-items: flex-start; }
@@ -213,5 +250,7 @@ h3 { font-size: 1.5rem; }
   .hero { min-height: auto; }
   .hero-cover img { margin: 0; width: min(100%, 300px); }
   .book-card img { width: min(100%, 220px); }
+  .review-card-text { min-height: auto; }
   .site-footer { flex-direction: column; }
+  .footer-links { justify-content: flex-start; }
 }

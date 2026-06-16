@@ -1,0 +1,47 @@
+ISTRUZIONI AGGIORNAMENTO DEFINITIVO SITO
+
+Questa versione è predisposta per il dominio definitivo:
+https://www.valeriodesantis.it/
+
+File da caricare/sostituire nella root del repository GitHub:
+- index.html
+- privacy.html
+- style.css
+- script.js
+- robots.txt
+- sitemap.xml
+- CNAME
+
+File da caricare/sostituire nella cartella assets:
+- foto-autore.jpg
+
+File che NON vanno eliminati dalla cartella assets:
+- lontano-dai-cipressi-cover.jpg
+- cinque-piccole-affamate-cover.jpg
+
+File vecchi che puoi eliminare dalla cartella assets perché non sono più usati:
+- review-bokononisti.jpg
+- review-carta-fragile.jpg
+- review-les-fleurs.jpg
+- review-tra-montagne.jpg
+
+Contenuti inclusi:
+- dominio definitivo nei tag canonical e Open Graph;
+- sitemap.xml aggiornata su https://www.valeriodesantis.it/;
+- robots.txt aggiornato;
+- Privacy e Cookie Policy aggiornata;
+- rassegna senza immagini/screenshot delle recensioni;
+- Club Ghost e Fantasy Magazine inseriti come card della rassegna;
+- GoatCounter attivo su https://valeriodesantis.goatcounter.com/count;
+- file CNAME già impostato su www.valeriodesantis.it.
+
+Dopo il caricamento:
+1. Attendi il completamento del deploy GitHub Pages.
+2. Apri https://www.valeriodesantis.it/ in finestra privata.
+3. Controlla che il link Privacy e Cookie Policy funzioni.
+4. Controlla che la rassegna non mostri più immagini/screenshot.
+5. Controlla che GoatCounter registri almeno una visita dopo qualche minuto.
+
+Google Search Console:
+Dopo aver verificato che il sito sia stabile in HTTPS, puoi registrare la proprietà https://www.valeriodesantis.it/ e inviare la sitemap:
+https://www.valeriodesantis.it/sitemap.xml
