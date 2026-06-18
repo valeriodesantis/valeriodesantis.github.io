@@ -355,3 +355,23 @@ h3 { font-size: 1.5rem; }
   .release-feature { display: grid; }
   .excerpt-hero h1 { max-width: none; }
 }
+
+.review-spotlight {
+  margin: 0 0 2rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(200,164,106,.45);
+  background: linear-gradient(135deg, rgba(200,164,106,.12), rgba(255,255,255,.03));
+  border-radius: 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+}
+.review-spotlight h2 { margin: .25rem 0 .5rem; font-size: clamp(1.6rem, 3vw, 2.35rem); }
+.review-spotlight p { color: var(--muted); margin: 0; }
+.review-spotlight blockquote { margin: 0; color: var(--text); font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.35; }
+.review-group { margin-top: 2rem; }
+.review-group > h3 { font-size: clamp(1.35rem, 2.4vw, 1.8rem); margin-bottom: 1rem; color: var(--accent); }
+.review-card h4 { font-size: clamp(1.25rem, 1.9vw, 1.55rem); max-width: 18rem; position: relative; margin: 0; }
+.review-card-featured { border-color: rgba(200,164,106,.45); background: linear-gradient(135deg, rgba(200,164,106,.13), rgba(255,255,255,.035)); }
+@media (max-width: 760px) { .review-spotlight { grid-template-columns: 1fr; } }
