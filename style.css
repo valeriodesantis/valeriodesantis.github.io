@@ -375,3 +375,13 @@ h3 { font-size: 1.5rem; }
 .review-card h4 { font-size: clamp(1.25rem, 1.9vw, 1.55rem); max-width: 18rem; position: relative; margin: 0; }
 .review-card-featured { border-color: rgba(200,164,106,.45); background: linear-gradient(135deg, rgba(200,164,106,.13), rgba(255,255,255,.035)); }
 @media (max-width: 760px) { .review-spotlight { grid-template-columns: 1fr; } }
+
+.release-launch {
+  border-color: rgba(200,164,106,.5);
+  background: linear-gradient(135deg, rgba(200,164,106,.14), rgba(255,255,255,.035));
+}
+.availability-note {
+  color: var(--text) !important;
+  margin-top: -.25rem;
+}
+.hero-copy .lead a { color: var(--accent); font-weight: 700; }
