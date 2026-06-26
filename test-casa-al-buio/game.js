@@ -81,8 +81,7 @@ const staticSolids = [
   { id: "bed", x: 82, y: 458, w: 105, h: 64 },
   { id: "suitcase", x: 244, y: 588, w: 48, h: 34 },
   { id: "parideDoor", x: 454, y: 494, w: 104, h: 12 },
-  { id: "conferenceTable", x: 846, y: 356, w: 120, h: 28 },
-  ...chairRects
+  { id: "conferenceTable", x: 846, y: 356, w: 120, h: 28 }
 ];
 
 const interactives = [
@@ -196,7 +195,7 @@ const interactives = [
   {
     id: "archive",
     title: "Archivio",
-    prompt: "Usa il tastierino",
+    prompt: "Usa il tastierino illuminato",
     x: 1056,
     y: 512,
     radius: 64,
@@ -419,12 +418,14 @@ function openKeypad() {
   state.modalOpen = true;
   state.keypadValue = "";
   keypadModal.hidden = false;
+  document.body.classList.add("keypad-active");
   updateKeypad();
 }
 
 function closeKeypad() {
   state.modalOpen = false;
   keypadModal.hidden = true;
+  document.body.classList.remove("keypad-active");
   updatePrompt();
 }
 
@@ -477,6 +478,9 @@ function updateKeypadDisplayOnly() {
 function showEnding(type) {
   state.endingOpen = true;
   endingModal.hidden = false;
+  touchDirs.clear();
+  document.body.classList.remove("keypad-active");
+  document.body.classList.add("ending-active");
 
   if (type === "secret") {
     endingKicker.textContent = "Finale segreto";
@@ -561,6 +565,7 @@ function restartGame() {
   keypadModal.hidden = true;
   messageBox.hidden = true;
   startPanel.hidden = true;
+  document.body.classList.remove("ending-active", "keypad-active");
   roomLabel.textContent = state.lastRoom;
   updateHud();
   updatePrompt();
@@ -697,11 +702,31 @@ function drawConferenceDetails() {
 function drawArchiveDoor() {
   const doorColor = state.spokeGianna ? "#66533f" : "#332b25";
   drawDoor(1058, 482, 12, 86, doorColor);
-  drawRect(1036, 514, 16, 24, "#141312", state.spokeGianna ? "#d9b871" : "#5d5148");
-  ctx.fillStyle = state.spokeGianna ? "rgba(217,184,113,0.25)" : "rgba(0,0,0,0.28)";
-  ctx.fillRect(1040, 518, 8, 3);
-  ctx.fillRect(1040, 525, 8, 3);
-  ctx.fillRect(1040, 532, 8, 3);
+
+  if (state.spokeGianna) {
+    const pulse = 0.78 + Math.sin(performance.now() / 360) * 0.18;
+    ctx.save();
+    ctx.globalCompositeOperation = "screen";
+    ctx.shadowColor = "rgba(255, 222, 145, 0.92)";
+    ctx.shadowBlur = 22;
+    ctx.fillStyle = `rgba(217, 184, 113, ${0.2 * pulse})`;
+    ctx.beginPath();
+    ctx.ellipse(1046, 526, 32, 44, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  drawRect(1033, 510, 22, 34, "#100f0e", state.spokeGianna ? "#ffe1a0" : "#5d5148");
+  ctx.fillStyle = state.spokeGianna ? "rgba(255,225,160,0.48)" : "rgba(0,0,0,0.28)";
+  ctx.fillRect(1038, 516, 12, 4);
+  ctx.fillRect(1038, 525, 12, 4);
+  ctx.fillRect(1038, 534, 12, 4);
+
+  if (state.spokeGianna) {
+    ctx.strokeStyle = "rgba(255, 235, 184, 0.72)";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(1030, 507, 28, 40);
+  }
 }
 
 function drawStoneTexture(rect) {
