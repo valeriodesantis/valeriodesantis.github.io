@@ -64,6 +64,7 @@ const state = {
   modalOpen: false,
   endingOpen: false,
   audioEnabled: false,
+  audioAvailable: true,
   lastRoom: "Camera di Nemo"
 };
 
@@ -242,6 +243,7 @@ function getWalkableAreas() {
 function startGame() {
   state.started = true;
   startPanel.hidden = true;
+  unlockAudioFromGesture(true);
   showMessage("La Casa", "La corrente era staccata. La pioggia no.");
   playTone("door");
 }
@@ -1296,6 +1298,17 @@ function handleModalKey(key) {
 }
 
 function setupTouchControls() {
+  const stopTouchSelection = (event) => {
+    event.preventDefault();
+  };
+  let lastDirectTouchAction = 0;
+
+  document.querySelectorAll(".touch-controls, .dpad, .touch-actions").forEach((element) => {
+    element.addEventListener("touchstart", stopTouchSelection, { passive: false });
+    element.addEventListener("touchmove", stopTouchSelection, { passive: false });
+    element.addEventListener("pointermove", stopTouchSelection);
+  });
+
   document.querySelectorAll("[data-touch-dir]").forEach((button) => {
     const direction = button.dataset.touchDir;
     const start = (event) => {
@@ -1311,10 +1324,31 @@ function setupTouchControls() {
     button.addEventListener("pointerup", end);
     button.addEventListener("pointercancel", end);
     button.addEventListener("pointerleave", end);
+    button.addEventListener("touchstart", start, { passive: false });
+    button.addEventListener("touchend", end, { passive: false });
+    button.addEventListener("touchcancel", end, { passive: false });
   });
 
-  touchInteract.addEventListener("click", interact);
-  touchTorch.addEventListener("click", toggleTorch);
+  const bindTouchAction = (button, action) => {
+    button.addEventListener("pointerup", (event) => {
+      if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+      event.preventDefault();
+      lastDirectTouchAction = performance.now();
+      action();
+    });
+
+    button.addEventListener("click", (event) => {
+      if (performance.now() - lastDirectTouchAction < 450) {
+        event.preventDefault();
+        return;
+      }
+
+      action();
+    });
+  };
+
+  bindTouchAction(touchInteract, interact);
+  bindTouchAction(touchTorch, toggleTorch);
 }
 
 function setupKeypad() {
@@ -1343,54 +1377,103 @@ function setupKeypad() {
 }
 
 function initAudio() {
-  if (audioContext) return;
+  if (audioContext) return true;
 
   const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContextClass) return;
-
-  audioContext = new AudioContextClass();
-  audioMaster = audioContext.createGain();
-  audioMaster.gain.value = 0.045;
-  audioMaster.connect(audioContext.destination);
-
-  const bufferLength = audioContext.sampleRate * 2;
-  const buffer = audioContext.createBuffer(1, bufferLength, audioContext.sampleRate);
-  const data = buffer.getChannelData(0);
-
-  for (let i = 0; i < bufferLength; i += 1) {
-    data[i] = (Math.random() * 2 - 1) * 0.45;
+  if (!AudioContextClass) {
+    state.audioAvailable = false;
+    return false;
   }
 
-  const filter = audioContext.createBiquadFilter();
-  filter.type = "lowpass";
-  filter.frequency.value = 760;
+  try {
+    audioContext = new AudioContextClass();
+    audioMaster = audioContext.createGain();
+    audioMaster.gain.value = 0.045;
+    audioMaster.connect(audioContext.destination);
 
-  rainSource = audioContext.createBufferSource();
-  rainSource.buffer = buffer;
-  rainSource.loop = true;
-  rainSource.connect(filter);
-  filter.connect(audioMaster);
-  rainSource.start();
+    const bufferLength = audioContext.sampleRate * 2;
+    const buffer = audioContext.createBuffer(1, bufferLength, audioContext.sampleRate);
+    const data = buffer.getChannelData(0);
+
+    for (let i = 0; i < bufferLength; i += 1) {
+      data[i] = (Math.random() * 2 - 1) * 0.45;
+    }
+
+    const filter = audioContext.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.value = 760;
+
+    rainSource = audioContext.createBufferSource();
+    rainSource.buffer = buffer;
+    rainSource.loop = true;
+    rainSource.connect(filter);
+    filter.connect(audioMaster);
+    rainSource.start();
+    return true;
+  } catch (error) {
+    state.audioAvailable = false;
+    updateAudioUi("Audio non disponibile");
+    return false;
+  }
+}
+
+function updateAudioUi(label) {
+  audioToggle.setAttribute("aria-pressed", String(state.audioEnabled));
+  audioToggle.textContent = label || (state.audioEnabled ? "Audio sì" : "Attiva audio");
+}
+
+function unlockAudioFromGesture(enableAudio) {
+  if (enableAudio) state.audioEnabled = true;
+
+  if (!state.audioEnabled) {
+    updateAudioUi();
+    return;
+  }
+
+  if (!initAudio() || !audioContext) {
+    state.audioEnabled = false;
+    updateAudioUi("Audio non disponibile");
+    return;
+  }
+
+  const resumeResult = audioContext.state === "suspended" ? audioContext.resume() : Promise.resolve();
+
+  Promise.resolve(resumeResult)
+    .then(() => {
+      if (audioContext.state === "running") {
+        state.audioEnabled = true;
+        updateAudioUi("Audio sì");
+        return;
+      }
+
+      updateAudioUi("Tocca per attivare l’audio");
+    })
+    .catch(() => {
+      state.audioEnabled = false;
+      updateAudioUi("Tocca per attivare l’audio");
+    });
+
+  updateAudioUi("Audio sì");
 }
 
 function toggleAudio() {
-  state.audioEnabled = !state.audioEnabled;
-  audioToggle.setAttribute("aria-pressed", String(state.audioEnabled));
-  audioToggle.textContent = state.audioEnabled ? "Audio sì" : "Audio no";
-
-  if (state.audioEnabled) {
-    initAudio();
-    if (audioContext && audioContext.state === "suspended") audioContext.resume();
+  if (!state.audioEnabled) {
+    unlockAudioFromGesture(true);
     playTone("switch");
     return;
   }
 
-  if (audioContext && audioContext.state === "running") audioContext.suspend();
+  state.audioEnabled = false;
+  updateAudioUi();
+
+  if (audioContext && audioContext.state === "running") {
+    audioContext.suspend().catch(() => {});
+  }
 }
 
 function playTone(type) {
   if (!state.audioEnabled) return;
-  initAudio();
+  if (!initAudio()) return;
   if (!audioContext || !audioMaster) return;
 
   const now = audioContext.currentTime;
@@ -1443,5 +1526,6 @@ canvas.addEventListener("contextmenu", (event) => event.preventDefault());
 setupTouchControls();
 setupKeypad();
 updateHud();
+updateAudioUi();
 roomLabel.textContent = state.lastRoom;
 requestAnimationFrame(gameLoop);

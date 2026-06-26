@@ -138,6 +138,9 @@ h2 {
   justify-content: end;
   gap: 0.45rem;
   font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .hud-pill,
@@ -183,6 +186,9 @@ h2 {
   min-height: 25rem;
   background: #070706;
   touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .prompt {
@@ -456,6 +462,10 @@ body.ending-active .controls-row {
   align-items: center;
   justify-content: space-between;
   gap: 0.85rem;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .dpad {
@@ -464,6 +474,10 @@ body.ending-active .controls-row {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 2.7rem);
   gap: 0.35rem;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .dpad button,
@@ -471,6 +485,10 @@ body.ending-active .controls-row {
   min-height: 2.7rem;
   border-radius: 0;
   font-family: Arial, Helvetica, sans-serif;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .dpad [data-touch-dir="up"] {
@@ -497,6 +515,10 @@ body.ending-active .controls-row {
   flex: 1;
   display: grid;
   gap: 0.5rem;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .noscript-message {
