@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="La Casa al buio, mini avventura grafica ispirata a Lontano dai cipressi.">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <title>La Casa al buio</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <div class="rain-layer" aria-hidden="true"></div>
+
+    <main class="game-shell" aria-label="La Casa al buio">
+      <header class="game-header">
+        <div class="brand-block">
+          <p class="eyebrow">Mini avventura top-down</p>
+          <h1>La Casa al buio</h1>
+        </div>
+
+        <div class="hud" aria-label="Stato">
+          <span class="hud-pill" id="roomLabel">Camera di Nemo</span>
+          <span class="hud-pill torch-pill" id="torchLabel">Torcia assente</span>
+          <button class="audio-toggle" id="audioToggle" type="button" aria-pressed="false">Audio no</button>
+        </div>
+      </header>
+
+      <section class="stage" aria-label="Area di gioco">
+        <canvas id="gameCanvas" width="960" height="620" aria-label="Mappa top-down della Casa"></canvas>
+
+        <div class="prompt" id="prompt" hidden></div>
+
+        <div class="message-box" id="messageBox" hidden role="status" aria-live="polite">
+          <p class="message-title" id="messageTitle"></p>
+          <p class="message-text" id="messageText"></p>
+          <button class="message-close" id="messageClose" type="button">Chiudi</button>
+        </div>
+
+        <div class="start-panel" id="startPanel">
+          <p class="eyebrow">Una breve esperienza interattiva ispirata a Lontano dai cipressi</p>
+          <h2>La Casa al buio</h2>
+          <p>
+            La Casa è stata evacuata. La corrente è stata staccata.
+            Fuori piove. Dentro sono rimasti Nemo e Paride.
+          </p>
+          <button class="primary-action" id="startButton" type="button">Entra</button>
+        </div>
+
+        <div class="modal-backdrop" id="keypadModal" hidden>
+          <section class="modal-panel keypad-panel" role="dialog" aria-modal="true" aria-labelledby="keypadTitle">
+            <p class="eyebrow">Ultima porta</p>
+            <h2 id="keypadTitle">Quattro cifre</h2>
+            <p class="modal-copy">
+              Quattro cifre.<br>
+              Non erano scritte sulla porta.<br>
+              Ma Nemo ebbe la certezza di averle già incontrate.
+            </p>
+            <output class="keypad-display" id="keypadDisplay" aria-live="polite">----</output>
+            <div class="keypad-grid" aria-label="Tastierino numerico">
+              <button type="button" data-keypad-digit="1">1</button>
+              <button type="button" data-keypad-digit="2">2</button>
+              <button type="button" data-keypad-digit="3">3</button>
+              <button type="button" data-keypad-digit="4">4</button>
+              <button type="button" data-keypad-digit="5">5</button>
+              <button type="button" data-keypad-digit="6">6</button>
+              <button type="button" data-keypad-digit="7">7</button>
+              <button type="button" data-keypad-digit="8">8</button>
+              <button type="button" data-keypad-digit="9">9</button>
+              <button type="button" data-keypad-clear="true">Cancella</button>
+              <button type="button" data-keypad-digit="0">0</button>
+              <button type="button" data-keypad-back="true">Indietro</button>
+            </div>
+            <p class="keypad-feedback" id="keypadFeedback" aria-live="polite"></p>
+            <div class="modal-actions">
+              <button class="primary-action" id="keypadSubmit" type="button">Prova</button>
+              <button id="keypadLeave" type="button">Lascia la porta</button>
+              <button id="keypadClose" type="button">Chiudi</button>
+            </div>
+          </section>
+        </div>
+
+        <div class="modal-backdrop" id="endingModal" hidden>
+          <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="endingTitle">
+            <p class="eyebrow" id="endingKicker">Finale</p>
+            <h2 id="endingTitle"></h2>
+            <p class="modal-copy" id="endingText"></p>
+            <div class="ending-mark" id="endingMark" hidden></div>
+            <div class="modal-actions links" id="endingLinks"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="controls-row" aria-label="Comandi">
+        <p class="desktop-help">Muovi Nemo con frecce o WASD. Premi E o Spazio per interagire, F per la torcia, ESC per chiudere.</p>
+
+        <div class="touch-controls" aria-label="Controlli touch">
+          <div class="dpad" aria-label="Movimento">
+            <button type="button" data-touch-dir="up" aria-label="Su">↑</button>
+            <button type="button" data-touch-dir="left" aria-label="Sinistra">←</button>
+            <button type="button" data-touch-dir="right" aria-label="Destra">→</button>
+            <button type="button" data-touch-dir="down" aria-label="Giù">↓</button>
+          </div>
+          <div class="touch-actions">
+            <button type="button" id="touchInteract">Interagisci</button>
+            <button type="button" id="touchTorch">Torcia</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <noscript>
+      <p class="noscript-message">Questa esperienza richiede JavaScript attivo nel browser.</p>
+    </noscript>
+  </body>
+</html>

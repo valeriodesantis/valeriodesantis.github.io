@@ -1,0 +1,38 @@
+LA CASA AL BUIO - TEST PROVVISORIO
+
+Cartella prevista per test online:
+/test-casa-al-buio/
+
+URL provvisorio previsto:
+https://valeriodesantis.it/test-casa-al-buio/
+
+Pagina premio provvisoria:
+https://valeriodesantis.it/test-casa-al-buio/appunti-dal-buio.html
+
+Per testare da Mac in locale:
+1. Apri la cartella del progetto.
+2. Avvia un server locale:
+   python3 -m http.server 8765 --bind 0.0.0.0
+3. Apri nel browser:
+   http://127.0.0.1:8765/test-casa-al-buio/
+
+Per testare da iPhone in locale:
+1. Assicurati che Mac e iPhone siano sulla stessa rete Wi-Fi.
+2. Trova l'indirizzo IP locale del Mac.
+3. Avvia il server locale dal Mac:
+   python3 -m http.server 8765 --bind 0.0.0.0
+4. Apri Safari su iPhone.
+5. Visita:
+   http://IP-DEL-MAC:8765/test-casa-al-buio/
+
+Per testare da iPhone online:
+1. Apri Safari su iPhone.
+2. Visita:
+   https://valeriodesantis.it/test-casa-al-buio/
+
+Note:
+- Questa versione e' provvisoria e non deve essere linkata dalla home.
+- Questa versione non deve essere inserita nella sitemap.
+- Le pagine includono meta robots noindex, nofollow, noarchive.
+- La newsletter e' solo grafica e non raccoglie dati.
+- Nessun servizio esterno, cookie, analytics, API, login o database.
