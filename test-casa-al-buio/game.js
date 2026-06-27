@@ -244,7 +244,7 @@ function startGame() {
   state.started = true;
   startPanel.hidden = true;
   unlockAudioFromGesture(true);
-  showMessage("La Casa", "La corrente era staccata. La pioggia no.");
+  showMessage("La Casa", "La corrente era saltata da ore. La pioggia, invece, non aveva mai smesso.");
   playTone("door");
 }
 
@@ -463,13 +463,13 @@ function submitKeypad() {
   state.keypadAttempts += 1;
   playTone("wrong");
 
-  if (state.keypadAttempts >= 3) {
-    state.keypadLocked = true;
-    updateKeypad();
+  if (state.keypadAttempts >= 2) {
+    closeKeypad();
+    showEnding("normal");
     return;
   }
 
-  keypadFeedback.textContent = "La serratura rimase muta.";
+  keypadFeedback.textContent = "La serratura non cede.";
   updateKeypadDisplayOnly();
 }
 
@@ -483,6 +483,7 @@ function showEnding(type) {
   touchDirs.clear();
   document.body.classList.remove("keypad-active");
   document.body.classList.add("ending-active");
+  endingModal.classList.toggle("normal-ending", type === "normal");
 
   if (type === "secret") {
     endingKicker.textContent = "Finale segreto";
@@ -510,13 +511,31 @@ function showEnding(type) {
   }
 
   endingKicker.textContent = "Finale";
-  endingTitle.textContent = "Un corridoio in più";
-  endingText.innerHTML = "La Casa non aveva risposto.<br>Si era limitata ad aprire un corridoio in più.";
+  endingTitle.textContent = "La porta resta chiusa";
+  endingText.innerHTML = [
+    "Il tastierino emise un suono basso.",
+    "La serratura non cedette.",
+    "",
+    "Nemo rimase immobile, con la torcia stretta in mano.",
+    "Davanti a lui, la porta sembrava respirare nel buio.",
+    "",
+    "Non era un codice qualunque.",
+    "Non era nascosto nella Casa.",
+    "",
+    "La combinazione apparteneva a un’altra soglia.",
+    "A una frase.",
+    "A un ricordo.",
+    "A qualcosa rimasto tra le pagine di Lontano dai cipressi.",
+    "",
+    "Per quella notte, la Casa non avrebbe aperto l’ultima porta.",
+    "Ma aveva lasciato una traccia."
+  ].map((line) => line || "<br>").join("<br>");
   endingMark.hidden = true;
   endingLinks.innerHTML = buildEndingLinks([
     // Link segnaposto facilmente modificabili quando la struttura definitiva del sito sara' disponibile.
     { label: "Leggi l’incipit", href: "/incipit.html", primary: true },
     { label: "Scopri il romanzo", href: "/lontano-dai-cipressi.html" },
+    { label: "Riprova il codice", action: "retry-code" },
     { label: "Torna al sito", href: "/" }
   ]);
   bindEndingActions();
@@ -536,8 +555,23 @@ function bindEndingActions() {
   endingLinks.querySelectorAll("[data-ending-action]").forEach((button) => {
     button.addEventListener("click", () => {
       if (button.dataset.endingAction === "restart") restartGame();
+      if (button.dataset.endingAction === "retry-code") retryCode();
     });
   });
+}
+
+function retryCode() {
+  state.keypadValue = "";
+  state.keypadAttempts = 0;
+  state.keypadLocked = false;
+  state.endingOpen = false;
+  state.modalOpen = false;
+
+  endingModal.hidden = true;
+  endingModal.classList.remove("normal-ending");
+  endingMark.hidden = true;
+  document.body.classList.remove("ending-active");
+  openKeypad();
 }
 
 function restartGame() {
@@ -567,6 +601,7 @@ function restartGame() {
   keypadModal.hidden = true;
   messageBox.hidden = true;
   startPanel.hidden = true;
+  endingModal.classList.remove("normal-ending");
   document.body.classList.remove("ending-active", "keypad-active");
   roomLabel.textContent = state.lastRoom;
   updateHud();

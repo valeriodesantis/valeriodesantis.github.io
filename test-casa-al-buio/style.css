@@ -347,9 +347,32 @@ body.ending-active #endingModal {
     max(1rem, env(safe-area-inset-left));
 }
 
+body.ending-active #endingModal.normal-ending {
+  place-items: center start;
+  background:
+    linear-gradient(90deg, rgba(2, 2, 2, 0.88) 0%, rgba(2, 2, 2, 0.72) 38%, rgba(2, 2, 2, 0.34) 100%),
+    radial-gradient(circle at 22% 42%, rgba(217, 184, 113, 0.16), transparent 24rem),
+    url("assets/finali/nemo-porta-chiusa-desktop.jpg"),
+    linear-gradient(135deg, #050505 0%, #191512 58%, #070706 100%);
+  background-position: center center;
+  background-size: cover;
+}
+
 body.ending-active #endingModal .modal-panel {
   width: min(35rem, 100%);
   max-height: calc(100svh - 2rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+}
+
+body.ending-active #endingModal.normal-ending .modal-panel {
+  width: min(38rem, 100%);
+  border-color: rgba(224, 199, 153, 0.5);
+  background: rgba(8, 8, 7, 0.74);
+  box-shadow: 0 1.4rem 3.8rem rgba(0, 0, 0, 0.66);
+  backdrop-filter: blur(10px);
+}
+
+body.ending-active #endingModal.normal-ending .modal-copy {
+  color: #f5eddc;
 }
 
 .modal-copy {
@@ -599,6 +622,21 @@ body.ending-active .controls-row {
 
   body.ending-active #endingModal .modal-panel {
     padding: 1.1rem;
+  }
+
+  body.ending-active #endingModal.normal-ending {
+    place-items: end center;
+    background:
+      linear-gradient(180deg, rgba(2, 2, 2, 0.2) 0%, rgba(2, 2, 2, 0.6) 42%, rgba(2, 2, 2, 0.94) 100%),
+      url("assets/finali/nemo-porta-chiusa-mobile.jpg"),
+      linear-gradient(180deg, #050505 0%, #191512 58%, #070706 100%);
+    background-position: center center;
+    background-size: cover;
+  }
+
+  body.ending-active #endingModal.normal-ending .modal-panel {
+    max-height: calc(100svh - 1.4rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    background: rgba(8, 8, 7, 0.8);
   }
 
   .modal-actions {
