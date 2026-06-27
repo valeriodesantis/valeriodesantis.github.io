@@ -350,8 +350,8 @@ body.ending-active #endingModal {
 body.ending-active #endingModal.normal-ending {
   place-items: center start;
   background:
-    linear-gradient(90deg, rgba(2, 2, 2, 0.88) 0%, rgba(2, 2, 2, 0.72) 38%, rgba(2, 2, 2, 0.34) 100%),
-    radial-gradient(circle at 22% 42%, rgba(217, 184, 113, 0.16), transparent 24rem),
+    linear-gradient(90deg, rgba(2, 2, 2, 0.76) 0%, rgba(2, 2, 2, 0.56) 32%, rgba(2, 2, 2, 0.16) 76%),
+    radial-gradient(circle at 18% 44%, rgba(217, 184, 113, 0.12), transparent 20rem),
     url("assets/finali/nemo-porta-chiusa-desktop.jpg"),
     linear-gradient(135deg, #050505 0%, #191512 58%, #070706 100%);
   background-position: center center;
@@ -364,15 +364,34 @@ body.ending-active #endingModal .modal-panel {
 }
 
 body.ending-active #endingModal.normal-ending .modal-panel {
-  width: min(38rem, 100%);
-  border-color: rgba(224, 199, 153, 0.5);
-  background: rgba(8, 8, 7, 0.74);
-  box-shadow: 0 1.4rem 3.8rem rgba(0, 0, 0, 0.66);
+  width: min(30rem, calc(100vw - 2rem));
+  max-height: calc(100svh - 2.4rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  margin-left: clamp(0rem, 3vw, 2rem);
+  overflow: auto;
+  border-color: rgba(224, 199, 153, 0.42);
+  background: rgba(8, 8, 7, 0.66);
+  box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.58);
   backdrop-filter: blur(10px);
 }
 
 body.ending-active #endingModal.normal-ending .modal-copy {
   color: #f5eddc;
+  font-size: 1rem;
+  line-height: 1.52;
+}
+
+body.ending-active #endingModal.normal-ending .modal-actions.links {
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+body.ending-active #endingModal.normal-ending .featured-action {
+  border-color: rgba(255, 222, 150, 0.86);
+  background:
+    linear-gradient(180deg, rgba(255, 231, 171, 0.22), rgba(217, 184, 113, 0.13)),
+    rgba(14, 12, 9, 0.9);
+  color: #fff8e8;
+  box-shadow: 0 0 0 1px rgba(217, 184, 113, 0.16), 0 0.65rem 1.45rem rgba(0, 0, 0, 0.28);
 }
 
 .modal-copy {
@@ -627,7 +646,7 @@ body.ending-active .controls-row {
   body.ending-active #endingModal.normal-ending {
     place-items: end center;
     background:
-      linear-gradient(180deg, rgba(2, 2, 2, 0.2) 0%, rgba(2, 2, 2, 0.6) 42%, rgba(2, 2, 2, 0.94) 100%),
+      linear-gradient(180deg, rgba(2, 2, 2, 0.12) 0%, rgba(2, 2, 2, 0.5) 36%, rgba(2, 2, 2, 0.92) 100%),
       url("assets/finali/nemo-porta-chiusa-mobile.jpg"),
       linear-gradient(180deg, #050505 0%, #191512 58%, #070706 100%);
     background-position: center center;
@@ -635,8 +654,17 @@ body.ending-active .controls-row {
   }
 
   body.ending-active #endingModal.normal-ending .modal-panel {
-    max-height: calc(100svh - 1.4rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-    background: rgba(8, 8, 7, 0.8);
+    width: min(100%, 24rem);
+    max-height: calc(100svh - 1.6rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    margin-left: 0;
+    padding: 0.95rem;
+    background: rgba(8, 8, 7, 0.78);
+  }
+
+  body.ending-active #endingModal.normal-ending .modal-copy {
+    margin-top: 0.75rem;
+    font-size: 0.96rem;
+    line-height: 1.43;
   }
 
   .modal-actions {

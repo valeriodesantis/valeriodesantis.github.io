@@ -522,10 +522,9 @@ function showEnding(type) {
     "Non era un codice qualunque.",
     "Non era nascosto nella Casa.",
     "",
-    "La combinazione apparteneva a un’altra soglia.",
-    "A una frase.",
-    "A un ricordo.",
-    "A qualcosa rimasto tra le pagine di Lontano dai cipressi.",
+    "La combinazione apparteneva a un’altra soglia:",
+    "a una frase, a un ricordo,",
+    "a qualcosa rimasto tra le pagine di Lontano dai cipressi.",
     "",
     "Per quella notte, la Casa non avrebbe aperto l’ultima porta.",
     "Ma aveva lasciato una traccia."
@@ -533,8 +532,8 @@ function showEnding(type) {
   endingMark.hidden = true;
   endingLinks.innerHTML = buildEndingLinks([
     // Link segnaposto facilmente modificabili quando la struttura definitiva del sito sara' disponibile.
-    { label: "Leggi l’incipit", href: "/incipit.html", primary: true },
-    { label: "Scopri il romanzo", href: "/lontano-dai-cipressi.html" },
+    { label: "Trova il codice nel romanzo", href: "/lontano-dai-cipressi.html", primary: true, featured: true },
+    { label: "Leggi l’incipit", href: "/incipit.html" },
     { label: "Riprova il codice", action: "retry-code" },
     { label: "Torna al sito", href: "/" }
   ]);
@@ -543,7 +542,10 @@ function showEnding(type) {
 
 function buildEndingLinks(links) {
   return links.map((link) => {
-    const className = link.primary ? "primary-action" : "";
+    const className = [
+      link.primary ? "primary-action" : "",
+      link.featured ? "featured-action" : ""
+    ].filter(Boolean).join(" ");
     if (link.action) {
       return `<button class="${className}" type="button" data-ending-action="${link.action}">${link.label}</button>`;
     }
