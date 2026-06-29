@@ -490,6 +490,10 @@ body.ending-active .controls-row {
   display: none;
 }
 
+body.keypad-active .controls-row {
+  display: none;
+}
+
 .desktop-help {
   margin: 0;
   color: var(--dim);

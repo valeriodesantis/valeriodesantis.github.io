@@ -420,6 +420,7 @@ function openKeypad() {
   state.modalOpen = true;
   state.keypadValue = "";
   keypadModal.hidden = false;
+  touchDirs.clear();
   document.body.classList.add("keypad-active");
   updateKeypad();
 }
@@ -532,7 +533,7 @@ function showEnding(type) {
   endingMark.hidden = true;
   endingLinks.innerHTML = buildEndingLinks([
     // Link segnaposto facilmente modificabili quando la struttura definitiva del sito sara' disponibile.
-    { label: "Trova il codice nel romanzo", href: "/lontano-dai-cipressi.html", primary: true, featured: true },
+    { label: "Trova il codice nel romanzo", href: "https://www.amazon.it/Lontano-dai-cipressi-Valerio-Santis/dp/B0H37WHJYK", primary: true, featured: true },
     { label: "Leggi l’incipit", href: "/incipit.html" },
     { label: "Riprova il codice", action: "retry-code" },
     { label: "Torna al sito", href: "/" }
