@@ -137,6 +137,25 @@ h3 { font-size: 1.5rem; }
   border-radius: 1.25rem;
 }
 .book-card p { color: var(--muted); }
+.special-experience-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: clamp(1.2rem, 3vw, 1.6rem);
+  border: 1px solid rgba(200,164,106,.38);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(200,164,106,.14), transparent 18rem),
+    linear-gradient(135deg, rgba(255,255,255,.065), rgba(255,255,255,.025));
+}
+.special-experience-card h3 { margin-bottom: .55rem; }
+.special-experience-card p:not(.meta) {
+  max-width: 43rem;
+  margin: 0;
+  color: var(--muted);
+}
+.special-experience-card .button { flex: 0 0 auto; }
 .author-section {
   display: grid;
   grid-template-columns: minmax(220px, 320px) 1fr;
@@ -247,6 +266,7 @@ h3 { font-size: 1.5rem; }
   }
   .nav-links.is-open { display: flex; }
   .hero, .book-card, .author-section, .reviews-grid { grid-template-columns: 1fr; }
+  .special-experience-card { flex-direction: column; align-items: flex-start; }
   .hero { min-height: auto; }
   .hero-cover img { margin: 0; width: min(100%, 300px); }
   .book-card img { width: min(100%, 220px); }
