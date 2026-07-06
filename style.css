@@ -24,6 +24,8 @@ a { color: inherit; text-decoration-color: rgba(200,164,106,.7); text-underline-
 a:hover { color: var(--accent); }
 img { max-width: 100%; display: block; }
 
+[id] { scroll-margin-top: 6.5rem; }
+
 .site-header {
   position: sticky;
   top: 0;
@@ -116,14 +118,14 @@ h3 { font-size: 1.5rem; }
 }
 .hero-cover img { width: min(100%, 360px); margin-left: auto; }
 .release-note {
-  margin: 0 0 2rem;
+  margin: 0 0 2.4rem;
   padding: 1rem 1.25rem;
   border: 1px solid var(--line);
   background: rgba(255,255,255,.04);
   border-radius: 1rem;
   color: var(--muted);
 }
-.section { padding: clamp(3rem, 7vw, 6rem) 0; border-top: 1px solid var(--line); }
+.section { padding: clamp(3.4rem, 7.5vw, 6.4rem) 0; border-top: 1px solid var(--line); }
 .section-intro { color: var(--muted); max-width: 48rem; margin-top: -.5rem; margin-bottom: 2rem; }
 .books-grid { display: grid; gap: 1.4rem; }
 .book-card {
@@ -137,25 +139,41 @@ h3 { font-size: 1.5rem; }
   border-radius: 1.25rem;
 }
 .book-card p { color: var(--muted); }
-.special-experience-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-  padding: clamp(1.2rem, 3vw, 1.6rem);
-  border: 1px solid rgba(200,164,106,.38);
-  border-radius: 1.25rem;
-  background:
-    radial-gradient(circle at 8% 18%, rgba(200,164,106,.14), transparent 18rem),
-    linear-gradient(135deg, rgba(255,255,255,.065), rgba(255,255,255,.025));
+.extras-section {
+  padding-top: clamp(2.4rem, 5vw, 4.2rem);
+  padding-bottom: clamp(2.8rem, 6vw, 4.8rem);
 }
-.special-experience-card h3 { margin-bottom: .55rem; }
-.special-experience-card p:not(.meta) {
-  max-width: 43rem;
+.extra-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 2.5rem);
+  padding: clamp(1.35rem, 4vw, 2.2rem);
+  border: 1px solid rgba(200,164,106,.4);
+  border-radius: 1.3rem;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(200,164,106,.16), transparent 19rem),
+    radial-gradient(circle at 88% 18%, rgba(255,255,255,.055), transparent 18rem),
+    linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.024));
+  box-shadow: 0 18px 60px rgba(0,0,0,.22);
+}
+.extra-card h2 {
+  margin-bottom: .65rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+.extra-card p {
+  max-width: 46rem;
   margin: 0;
   color: var(--muted);
 }
-.special-experience-card .button { flex: 0 0 auto; }
+.extra-card .extra-subtitle {
+  margin-bottom: .55rem;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.18rem, 2vw, 1.45rem);
+  line-height: 1.25;
+}
+.extra-card .button { justify-self: end; }
 .author-section {
   display: grid;
   grid-template-columns: minmax(220px, 320px) 1fr;
@@ -265,8 +283,9 @@ h3 { font-size: 1.5rem; }
     background: var(--surface-2);
   }
   .nav-links.is-open { display: flex; }
-  .hero, .book-card, .author-section, .reviews-grid { grid-template-columns: 1fr; }
-  .special-experience-card { flex-direction: column; align-items: flex-start; }
+  .hero, .book-card, .author-section, .reviews-grid, .extra-card { grid-template-columns: 1fr; }
+  .extra-card .button { justify-self: start; }
+  .extras-section { padding-top: 2.5rem; }
   .hero { min-height: auto; }
   .hero-cover img { margin: 0; width: min(100%, 300px); }
   .book-card img { width: min(100%, 220px); }
@@ -395,6 +414,23 @@ h3 { font-size: 1.5rem; }
 .review-card h4 { font-size: clamp(1.25rem, 1.9vw, 1.55rem); max-width: 18rem; position: relative; margin: 0; }
 .review-card-featured { border-color: rgba(200,164,106,.45); background: linear-gradient(135deg, rgba(200,164,106,.13), rgba(255,255,255,.035)); }
 @media (max-width: 760px) { .review-spotlight { grid-template-columns: 1fr; } }
+
+@media (max-width: 520px) {
+  h1 { font-size: clamp(2.35rem, 13vw, 3.4rem); }
+  h2 { font-size: clamp(1.85rem, 10vw, 2.55rem); }
+  .hero-actions,
+  .links-row {
+    width: 100%;
+    align-items: stretch;
+  }
+  .button,
+  .links-row a {
+    width: 100%;
+  }
+  .extra-card .button {
+    justify-self: stretch;
+  }
+}
 
 .release-launch {
   border-color: rgba(200,164,106,.5);
