@@ -206,23 +206,24 @@
         line-height: 1.7;
       }
 
-      .newsletter {
+      .instagram-section {
         margin: clamp(2.6rem, 6vw, 5rem) 0;
         padding: clamp(1.3rem, 4vw, 2.5rem);
         border: 1px solid var(--line-strong);
         background:
-          radial-gradient(circle at 84% 18%, rgba(217, 184, 113, 0.12), transparent 22rem),
+          radial-gradient(circle at 84% 18%, rgba(158, 181, 189, 0.13), transparent 22rem),
+          radial-gradient(circle at 12% 22%, rgba(217, 184, 113, 0.1), transparent 18rem),
           linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
           var(--paper-strong);
         box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.26);
       }
 
-      .newsletter h2 {
+      .instagram-section h2 {
         max-width: 36rem;
         font-size: clamp(1.8rem, 5vw, 3rem);
       }
 
-      .newsletter p {
+      .instagram-section p {
         max-width: 44rem;
         color: var(--muted);
         font-size: 1.04rem;
@@ -237,14 +238,6 @@
         color: var(--muted);
         font-size: clamp(1.08rem, 2vw, 1.28rem);
         line-height: 1.65;
-      }
-
-      .newsletter-message {
-        margin: 0.85rem 0 0;
-        color: var(--amber);
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 0.95rem;
-        line-height: 1.45;
       }
 
       .button-row {
@@ -387,19 +380,13 @@
         Altri resteranno soltanto ombre.
       </p>
 
-      <section class="newsletter" id="newsletter-prossimamente" aria-label="Newsletter">
-        <p class="eyebrow">Newsletter</p>
-        <h2>Hai aperto l’ultima porta.<br>Posso avvisarti quando se ne aprirà un’altra.</h2>
-        <p>Riceverai soltanto aggiornamenti sui prossimi racconti, romanzi, uscite editoriali e contenuti riservati. Nessuna frequenza fissa, nessun invio inutile.</p>
-        <!--
-          TODO: sostituire questo blocco con il form ufficiale del servizio newsletter scelto dall’autore,
-          per esempio Brevo, dopo configurazione del consenso e dell’informativa privacy.
-          In questa fase non vengono raccolti dati personali.
-        -->
+      <section class="instagram-section" aria-label="Instagram">
+        <p class="eyebrow">Instagram</p>
+        <h2>Resta nel buio</h2>
+        <p>Per non perdere i prossimi appunti, le nuove uscite e le tracce dei lavori in corso, puoi seguirmi su Instagram.</p>
         <div class="button-row">
-          <button class="button primary" id="newsletterButton" type="button">Iscriviti alla newsletter</button>
+          <a class="button primary" href="https://www.instagram.com/valdes_it/" target="_blank" rel="noopener">Seguimi su Instagram</a>
         </div>
-        <p class="newsletter-message" id="newsletterMessage" hidden>La newsletter sarà disponibile a breve.</p>
       </section>
 
       <nav class="footer-nav" aria-label="Navigazione finale">
@@ -410,13 +397,5 @@
         <a class="button" href="/contatti.html">Scrivimi</a>
       </nav>
     </main>
-    <script>
-      const newsletterButton = document.querySelector("#newsletterButton");
-      const newsletterMessage = document.querySelector("#newsletterMessage");
-
-      newsletterButton.addEventListener("click", () => {
-        newsletterMessage.hidden = false;
-      });
-    </script>
   </body>
 </html>
